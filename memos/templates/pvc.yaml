@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: memos-volume
+spec:
+  capacity:
+    storage: 10Gi  # Adjust the storage size as needed
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /home/pi/k8s/memos
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: memos-pvc
+spec:
+  volumeName:  memos-volume
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi  # Should match the capacity specified in the PV
+  storageClassName: ""  # <== explicitly empty to match the static PV
