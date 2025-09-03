@@ -4,7 +4,7 @@ image:
   repository: neosmemo/memos
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "stable"
   env:
     MEMOS_PORT: 5230
     MEMOS_MODE: "prod"
@@ -91,3 +91,4 @@ nodeSelector:
 tolerations: []
 
 affinity: {}
+
